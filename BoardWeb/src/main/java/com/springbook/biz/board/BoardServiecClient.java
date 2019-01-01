@@ -11,7 +11,7 @@ public class BoardServiecClient {
 		AbstractApplicationContext container = new GenericXmlApplicationContext("applicationContext.xml");
 		
 		//2.Spring 컨테이너로부터 BoardServiceImpl 객채를 lookup
-		BoardService boardService = (BoardService)container.getBean("oardService");
+		BoardService boardService = (BoardService)container.getBean("boardService");
 		
 		//3. 글 등록 기능 테스트
 		BoardVO vo = new BoardVO();
