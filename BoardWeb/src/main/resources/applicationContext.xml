@@ -11,13 +11,17 @@
 	
 	<bean id="log" class="com.springbook.biz.common.LogAdvice"></bean>
 	<bean id="before" class="com.springbook.biz.common.BeforeAdvice"></bean>
+	<bean id="afterReturn" class="com.springbook.biz.common.afterReturnAdvice"></bean>
+	<bean id="afterThrowing" class="com.springbook.biz.common.afterThrowingAdvice"></bean>
+	<bean id="after" class="com.springbook.biz.common.AfterAdvice"></bean>
+	<bean id="around" class="com.springbook.biz.common.AroundAdvice"></bean>
 	<aop:config>
 		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.get*(..))" />
 		
-		<aop:aspect ref="log">
+		<aop:aspect ref="around">
 		<!-- after before등과 같이 앞이나 뒤에 붙여주는걸 설정 가능 -->
-			<aop:after pointcut-ref="allPointcut" method="beforeLog" />
+			<aop:around pointcut-ref="allPointcut" method="aroundLog" />
 		</aop:aspect>
 	</aop:config>
 	<!-- 
@@ -26,5 +30,5 @@
 	</bean>
 	<bean id="userDAO" class="com.springbook.biz.user.impl.UserDAO"></bean>
 	 -->
-	 
+	 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
