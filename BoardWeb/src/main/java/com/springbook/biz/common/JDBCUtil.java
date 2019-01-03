@@ -11,7 +11,7 @@ public class JDBCUtil {
 		Connection c = null;
         try {
         	c = DriverManager.getConnection
-                    ("jdbc:oracle:thin:@//localhost:1521/xe", "system", "1234");
+                    ("jdbc:oracle:thin:@//localhost:1521/xe", "hr", "hkitedu");
 			Class.forName("oracle.jdbc.OracleDriver");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
